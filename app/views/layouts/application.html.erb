@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="Description" content="IMPORTER AND DISTRIBUTOR OF CNC-VMC TOOLINGS">
+		<meta name="Keywords" content="ER COLLETS, ER SPANNERS. PRECISION SCREWS, BT40 COLLET CHUCKS, SIDE LOCK ADAPTORS, FACE MILL ADAPTORS, TURNING TOOL HOLDERS, BORING BARS. ANTI-VIBRATION BORING BARS, CARBIDE END MILLS, CARBIDE BALL NOSE CUTTERS, SHELL MILLS, INDEXABLE END MILLS &amp; BULL NOSE CUTTERS, TORX KEYS &amp; DRIVERS, PULL STUDS, ER NUTS, OTHER TOOLING ACCESSORIES &amp; SPARES.">
+		<title>HAGG MILL STORE PRIVATE LIMITED </title>
+	  	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  	<%= csrf_meta_tags %>
+		
+	</head>
+
+	<body>
+		  <!-- header -->
+  <div class="header">
+  <header>
+    <h1> <a href="index.html"><img src="images/logo.png" alt="hagg" /> </a> </h1>
+     <p>Call us: <strong>120-432-2779</strong></p>
+    <ul>
+      <li><a href="/" class="slected">Home</a> </li>
+      <li><a href="about.html">About us</a> </li>
+      <li><a href="product.html">Products</a> </li>
+      <li><a href="hot_deal.html">Hot Deals</a> </li>
+      <li><a href="contact.html">CONTACT</a> </li>
+    </ul>
+  </header>
+  </div>
+  <!-- header --> 
+<div id="wraper">   
+  <!-- banner -->
+  <div class="bx-wrapper" style="margin-top:81px;">
+    <div class="bx-viewport">
+     <ul class="bxslider" >
+        <li><img src="images/banner.png" alt="banner" /></li>
+        <li><img src="images/banner1.png" alt="banner" /></li>
+        <li><img src="images/banner2.png" alt="banner" /></li>
+        <li><img src="images/banner3.png" alt="banner" /></li>       
+      </ul>
+    </div>
+  </div>
+  
+  <!-- banner end -->
+		<%= yield %>
+	
+		<script language="javascript">
+			$(document).ready(function(){
+			  $('.bxslider').bxSlider();
+			});
+		</script>
+		<footer>
+			<p  class="fleft">
+			<a href="/">Home</a> 
+			<a href="about.html">About us</a> 
+			<a href="product.html">Products</a> 
+			<a href="contact.html">Contact</a> 
+			<br>
+			Copyrights reserved 2014  www.hagg.com
+			</p>
+			
+			<div class="social_icon">
+			<a href="#" class="pay_u">Pay u</a>
+			
+			<a href="#" class="facebook">f</a>
+			</div>
+	
+		</footer>
+	
+	
+	</body>
+</html>

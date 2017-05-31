@@ -1,0 +1,20 @@
+development: &defaults
+  adapter: postgresql
+  encoding: unicode
+  database: hagg_development
+  pool: 5
+  username: harry
+  password: harry
+  host: localhost
+
+#test:
+#  <<: *defaults
+#  database: fungal_test
+
+staging:
+  <<: *defaults
+  database: hagg_core
+
+production:
+  <<: *defaults
+  database: hagg_production
