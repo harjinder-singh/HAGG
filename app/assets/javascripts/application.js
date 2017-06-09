@@ -10,7 +10,14 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery.min
-//= require jquery.bxslider
-//= require lib_v1
-//= require slider
+//= require jquery-1.10.2.min
+//= require jquery-ui-1.10.2.custom.min
+//= require jquery-migrate-1.2.1.min
+//= require jquery-ui-1.10.3.custom.min
+//= require jquery.slimscroll.min
+//= require bootstrap.min
+//= require bootstrap-hover-dropdown.min
+//= require jquery.uniform.min
+//= require app
+//= require bootstrap-fileinput.js
+//= require nested_form_fields

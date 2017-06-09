@@ -1,71 +1,163 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="Description" content="IMPORTER AND DISTRIBUTOR OF CNC-VMC TOOLINGS">
-		<meta name="Keywords" content="ER COLLETS, ER SPANNERS. PRECISION SCREWS, BT40 COLLET CHUCKS, SIDE LOCK ADAPTORS, FACE MILL ADAPTORS, TURNING TOOL HOLDERS, BORING BARS. ANTI-VIBRATION BORING BARS, CARBIDE END MILLS, CARBIDE BALL NOSE CUTTERS, SHELL MILLS, INDEXABLE END MILLS &amp; BULL NOSE CUTTERS, TORX KEYS &amp; DRIVERS, PULL STUDS, ER NUTS, OTHER TOOLING ACCESSORIES &amp; SPARES.">
-		<title>HAGG MILL STORE PRIVATE LIMITED </title>
-	  	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-	 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	  	<%= csrf_meta_tags %>
-		
-	</head>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="Description" content="IMPORTER AND DISTRIBUTOR OF CNC-VMC TOOLINGS">
+<meta name="Keywords" content="ER COLLETS, ER SPANNERS. PRECISION SCREWS, BT40 COLLET CHUCKS, SIDE LOCK ADAPTORS, FACE MILL ADAPTORS, TURNING TOOL HOLDERS, BORING BARS. ANTI-VIBRATION BORING BARS, CARBIDE END MILLS, CARBIDE BALL NOSE CUTTERS, SHELL MILLS, INDEXABLE END MILLS &amp; BULL NOSE CUTTERS, TORX KEYS &amp; DRIVERS, PULL STUDS, ER NUTS, OTHER TOOLING ACCESSORIES &amp; SPARES.">
+<title>HAGG MILL STORE PRIVATE LIMITED </title>
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
 
-	<body>
-		  <!-- header -->
-  <div class="header">
-  <header>
-    <h1> <a href="index.html"><img src="images/logo.png" alt="hagg" /> </a> </h1>
-     <p>Call us: <strong>120-432-2779</strong></p>
-    <ul>
-      <li><a href="/" class="slected">Home</a> </li>
-      <li><a href="about.html">About us</a> </li>
-      <li><a href="product.html">Products</a> </li>
-      <li><a href="hot_deal.html">Hot Deals</a> </li>
-      <li><a href="contact.html">CONTACT</a> </li>
-    </ul>
-  </header>
-  </div>
-  <!-- header --> 
-<div id="wraper">   
-  <!-- banner -->
-  <div class="bx-wrapper" style="margin-top:81px;">
-    <div class="bx-viewport">
-     <ul class="bxslider" >
-        <li><img src="images/banner.png" alt="banner" /></li>
-        <li><img src="images/banner1.png" alt="banner" /></li>
-        <li><img src="images/banner2.png" alt="banner" /></li>
-        <li><img src="images/banner3.png" alt="banner" /></li>       
-      </ul>
-    </div>
-  </div>
-  
-  <!-- banner end -->
-		<%= yield %>
-	
-		<script language="javascript">
-			$(document).ready(function(){
-			  $('.bxslider').bxSlider();
-			});
-		</script>
-		<footer>
-			<p  class="fleft">
-			<a href="/">Home</a> 
-			<a href="about.html">About us</a> 
-			<a href="product.html">Products</a> 
-			<a href="contact.html">Contact</a> 
-			<br>
-			Copyrights reserved 2014  www.hagg.com
-			</p>
-			
-			<div class="social_icon">
-			<a href="#" class="pay_u">Pay u</a>
-			
-			<a href="#" class="facebook">f</a>
-			</div>
-	
-		</footer>
-	
-	
-	</body>
+
+
+<!-- END THEME STYLES -->
+<link rel="shortcut icon" href="favicon.ico"/>
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="page-header-fixed">
+<!-- BEGIN HEADER -->
+<div class="header navbar navbar-fixed-top">
+	<!-- BEGIN TOP NAVIGATION BAR -->
+	<div class="header-inner">
+		<!-- BEGIN LOGO -->
+		<a class="navbar-brand" href="index.html">
+			<img src="/img/logo.png" alt="logo" class="img-responsive"/>
+		</a>
+		<!-- END LOGO -->
+		<!-- BEGIN RESPONSIVE MENU TOGGLER -->
+		<a href="javascript:;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			<img src="/img/menu-toggler.png" alt=""/>
+		</a>
+		<!-- END RESPONSIVE MENU TOGGLER -->
+		<!-- BEGIN TOP NAVIGATION MENU -->
+		<ul class="nav navbar-nav pull-right">
+			<!-- BEGIN USER LOGIN DROPDOWN -->
+			<li class="dropdown user">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+					<img alt="" src="/img/avatar1_small.jpg"/>
+					<span class="username">
+						 Bob Nilson
+					</span>
+					<i class="fa fa-angle-down"></i>
+				</a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="login.html">
+							<i class="fa fa-key"></i> Log Out
+						</a>
+					</li>
+				</ul>
+			</li>
+			<!-- END USER LOGIN DROPDOWN -->
+		</ul>
+		<!-- END TOP NAVIGATION MENU -->
+	</div>
+	<!-- END TOP NAVIGATION BAR -->
+</div>
+<!-- END HEADER -->
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+	<!-- BEGIN SIDEBAR -->
+	<div class="page-sidebar-wrapper">
+		<div class="page-sidebar navbar-collapse collapse">
+			<!-- add "navbar-no-scroll" class to disable the scrolling of the sidebar menu -->
+			<!-- BEGIN SIDEBAR MENU -->
+			<ul class="page-sidebar-menu">
+				<li class="sidebar-toggler-wrapper">
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+					<div class="sidebar-toggler hidden-phone">
+					</div>
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+				</li>
+				<li class="sidebar-search-wrapper">
+					<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+					<form class="sidebar-search" action="extra_search.html" method="POST">
+						<div class="form-container">
+							<div class="input-box">
+								<a href="javascript:;" class="remove">
+								</a>
+								<input type="text" placeholder="Search..."/>
+								<input type="button" class="submit" value=" "/>
+							</div>
+						</div>
+					</form>
+					<!-- END RESPONSIVE QUICK SEARCH FORM -->
+				</li>
+				<li class="start active ">
+					<a href="index.html">
+						<i class="fa fa-home"></i>
+						<span class="title">
+							Dashboard
+						</span>
+						<span class="selected">
+						</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<i class="fa fa-shopping-cart"></i>
+						<span class="title">
+							Products
+						</span>
+						<span class="arrow ">
+						</span>
+					</a>
+					<ul class="sub-menu">
+						<% ToolCategory.all.each do |tc|%>
+							<li>
+								<a href=<%= tool_category_path(tc.id)%>>
+									<i class="fa fa-sitemap"></i>
+									<%= tc.name%>
+								</a>
+							</li>
+						<%end%>
+					</ul>
+				</li>
+				<li>
+					<a href=<%= new_tool_category_path%>>
+						<i class="fa fa-plus"></i>
+						<span class="title">
+							Add New product
+						</span>
+						<span class="selected">
+						</span>
+					</a>
+				</li>
+			</ul>
+			<!-- END SIDEBAR MENU -->
+		</div>
+	</div>
+	<!-- END SIDEBAR -->
+	<!-- BEGIN CONTENT -->
+	<div class="page-content-wrapper">
+		<div class="page-content">
+			<%= yield%>
+		</div>
+	</div>
+	<!-- END CONTENT -->
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+<div class="footer">
+	<div class="footer-inner">
+		 2014 &copy; Metronic by keenthemes.
+	</div>
+	<div class="footer-tools">
+		<span class="go-top">
+			<i class="fa fa-angle-up"></i>
+		</span>
+	</div>
+</div>
+<script>
+	jQuery(document).ready(function() {    
+		App.init(); // initlayout and core plugins
+	});
+</script>
+
+</body>
+<!-- END BODY -->
 </html>
