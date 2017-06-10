@@ -1,6 +1,6 @@
 <div class="main">
 	<div class="wrap">
-		<ul class="breadcrumb breadcrumb__t"><a class="home" href="#">Home</a> / <a href="#">Dolor sit amet</a> / Lorem ipsum dolor sit amet</ul>
+		<ul class="breadcrumb breadcrumb__t"><a class="home" href="/">Home</a> / <%= @category.name %> / Edit</ul>
 		<div class="clear"></div>
 		<div class="row">
 			<div class="col-md-12">
@@ -29,7 +29,7 @@
 									 Photos
 								</th>
 								<th>
-									Actions
+									Action
 								</th>
 							</tr>
 							</thead>
@@ -42,13 +42,19 @@
 										<td>
 											<% var.photos.each do |pic|%>
 												<%= image_tag pic.img.url(:thumb) %>
+												<%= link_to image_tag("portlet-remove-icon.png"), pic, :method => :delete%>
 											<%end%>
 										</td>
 										<td>
-											
+											<%= button_to "delete", variant_path(:id => var.id), :method => :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
 										</td>
 									</tr>
 								<%end%>
+								<tr>
+									<td class="center-content" colspan=5>
+										<%= link_to "Edit", edit_tool_category_path(@category), class: "btn btn-success pull-right"%>
+									</td>
+								</tr>
 							</tbody>
 							</table>
 						</div>

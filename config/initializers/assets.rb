@@ -8,6 +8,6 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( jquery-ui.min.js jquery1.min.js bootstrap.min.js bootstrap-hover-dropdown.min.js bootstrap-fileinput.js jquery.jscrollpane.min.js
-                                                  nested_form_fields.js  css3-mediaqueries.js fwslider.js jquery.nivo.slider.js megamenu.js jquery.easydropdown.js bootstrap.min.css
-                                                  font-awesome.min.css bootstrap-fileinput.css style.css form.css megamenu.css fwslider.css nivo-slider.css default.css)
+Rails.application.config.assets.precompile += %w( jquery-ui.min.js jquery1.min.js bootstrap.min.js bootstrap-hover-dropdown.min.js bootstrap-fileinput.js jquery.jscrollpane.min.js slides.min.jquery.js
+                                                  nested_form_fields.js css3-mediaqueries.js fwslider.js jquery.nivo.slider.js megamenu.js jquery.easydropdown.js jquery.flexisel.js jquery.etalage.min.js
+                                                  bootstrap.min.css font-awesome.min.css bootstrap-fileinput.css style.css form.css megamenu.css fwslider.css nivo-slider.css default.css profile.css etalage.css)

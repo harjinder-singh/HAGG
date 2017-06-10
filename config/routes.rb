@@ -9,6 +9,12 @@ Rails.application.routes.draw do
   
   resources :tool_categories do
   end
+
+  resources :variants do
+  end
+
+  resources :photos do
+  end
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

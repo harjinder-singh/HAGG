@@ -10,10 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
+//= require jquery_ujs
 //= require jquery1.min
 //= require jquery-ui.min
 //=require jquery.easydropdown
 //= require jquery.nivo.slider
+//= require jquery.flexisel
 //= jquery.jscrollpane.min
 //= require bootstrap.min
 //= require bootstrap-hover-dropdown.min
@@ -21,11 +24,24 @@
 //= require megamenu
 //= require css3-mediaqueries
 //= require fwslider
+//= require jquery.etalage.min
+//= require slides.min.jquery
 //= require nested_form_fields
 
 $(document).ready(function(){
 
 	$(".megamenu").megamenu();
 	$('#slider').nivoSlider();
+	
+	$('#etalage').etalage({
+		thumb_image_width: 360,
+		thumb_image_height: 360,
+		source_image_width: 900,
+		source_image_height: 900,
+		show_hint: true,
+		click_callback: function(image_anchor, instance_id){
+			alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
+		}
+	});
 
 });

@@ -19,5 +19,7 @@
  *= require fwslider
  *= require nivo-slider
  *= require default
+ *= require profile
+ *= require etalage
  *= require_self
  */

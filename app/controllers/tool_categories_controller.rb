@@ -20,9 +20,19 @@ class ToolCategoriesController < ApplicationController
     @category = ToolCategory.find(params[:id])
   end
   
+  def edit
+    @category = ToolCategory.find(params[:id])
+  end
+  
+  def update
+    @category = ToolCategory.find(params[:id])
+    @category.update_attributes(category_params)
+    redirect_to @category
+  end
+  
   private 
 
   def category_params
-    params.require(:tool_category).permit(:name, :variants_attributes => [:name, :price, :desc, :photos_attributes => [:img]])
+    params.require(:tool_category).permit(:id, :name, :variants_attributes => [:id, :name, :price, :desc, :photos_attributes => [:id, :img]])
   end
 end
