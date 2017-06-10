@@ -10,14 +10,22 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery-1.10.2.min
-//= require jquery-ui-1.10.2.custom.min
-//= require jquery-migrate-1.2.1.min
-//= require jquery-ui-1.10.3.custom.min
-//= require jquery.slimscroll.min
+//= require jquery1.min
+//= require jquery-ui.min
+//=require jquery.easydropdown
+//= require jquery.nivo.slider
+//= jquery.jscrollpane.min
 //= require bootstrap.min
 //= require bootstrap-hover-dropdown.min
-//= require jquery.uniform.min
-//= require app
-//= require bootstrap-fileinput.js
+//= require bootstrap-fileinput
+//= require megamenu
+//= require css3-mediaqueries
+//= require fwslider
 //= require nested_form_fields
+
+$(document).ready(function(){
+
+	$(".megamenu").megamenu();
+	$('#slider').nivoSlider();
+
+});

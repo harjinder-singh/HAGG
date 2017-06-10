@@ -10,16 +10,14 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require custom
  *= require style
+ *= require form
+ *= require megamenu
  *= require bootstrap.min
- *= require bootstrap-fileinput.css
+ *= require bootstrap-fileinput
  *= require font-awesome.min
- *= require uniform.default.min
- *= require style-metronic
- *= require style-responsive
- *= require plugins
- *= require animate
+ *= require fwslider
+ *= require nivo-slider
  *= require default
  *= require_self
  */
