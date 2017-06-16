@@ -11,4 +11,15 @@ class VariantsController < ApplicationController
     redirect_to :back
   end
   
+  def featured
+    @variant = Variant.find(params[:id])
+    @variant.update(featured: !@variant.featured?)
+    render :json => {}
+  end
+  
+  def hot_deals
+    @variant = Variant.find(params[:id])
+    @variant.update(hot_deal: !@variant.hot_deal?)
+    render :json => {}
+  end
 end

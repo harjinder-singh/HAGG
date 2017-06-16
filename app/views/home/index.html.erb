@@ -47,7 +47,7 @@
 				<h2 class="head">Featured Products</h2>
 				<!-- Logic for 3 pics in row -->
 				<%j=0%>
-				<%@products.each_with_index do |var,index|%>
+				<%@featured.each_with_index do |var,index|%>
 					<%j= j+1%>
 					<%if index!=0 and index%3==0 %>
 						<div class="clear"></div>
@@ -60,7 +60,36 @@
 								<div class="product_image">
 									<img src=<%= var.photos.first.try(:img).try(:url)%> alt=""/>
 								</div>
-								<div class="sale-box"><span class="on_sale title_shop">New</span></div>	
+								<!--<div class="sale-box"><span class="on_sale title_shop">New</span></div>-->	
+								<div class="price">
+									<div class="cart-left">
+										<p class="title"><%= var.name %></p>
+									</div>
+									<div class="cart-right"> </div>
+									<div class="clear"></div>
+								</div>				
+							</div>
+						</a>
+					</div>
+				<%end%>
+				<div class="clear"></div></div>
+				<h2 class="head">Hot Deals</h2>
+				<!-- Logic for 3 pics in row -->
+				<%j=0%>
+				<%@hot_deals.each_with_index do |var,index|%>
+					<%j= j+1%>
+					<%if index!=0 and index%3==0 %>
+						<div class="clear"></div>
+						</div>
+					<%end%>
+					<%if index==0 or index%3==0 %><div class="top-box"><%end%>
+					<div class="col_1_of_3 span_1_of_3"> 
+						<a href="<%= variant_path(var)%>">
+							<div class="inner_content clearfix">
+								<div class="product_image">
+									<img src=<%= var.photos.first.try(:img).try(:url)%> alt=""/>
+								</div>
+								<!--<div class="sale-box"><span class="on_sale title_shop">New</span></div>-->	
 								<div class="price">
 									<div class="cart-left">
 										<p class="title"><%= var.name %></p>
@@ -79,8 +108,10 @@
 				<div class="border">
 					<div class="slider-wrapper theme-default">
 						<div id="slider" class="nivoSlider">
-							<%Photo.all.each do |pic|%>
-								<img src=<%= pic.img.try(:url)%>  alt="" />
+							<%@hot_deals.each do |var|%>
+							<%if var.photos.any?%>
+								<img src=<%= var.photos.first.try(:img).try(:url)%>  alt="" />
+							<%end%>
 							<%end%>
 						</div>
 					</div>

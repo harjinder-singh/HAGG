@@ -1,36 +1,38 @@
-<!-- body container -->
-  <div id="latest_container">
-    <h1>Product</h1>
-    
-    <ul>
-    <li>
-    <img src="images/er_collet.jpg" alt="" />
-<h3>ER Collets</h3>
-<p>We sell high Quality 65 Mn spring steel Er collets Range starting from Er 8 to Er 40.<br>
-<br>
-<a href="#"><img src="images/add_cart.jpg" alt="" /></a></p>
-    </li>
-    
-     <li>
-    <img src="images/screw.jpg" alt="" />
-<h3>Screw</h3>
-<p>Precision screw available from Size M1.6 to M 6 in various Lenghts.<br>
-<br>
-<a href="#"><img src="images/add_cart.jpg" alt="" /></a></p>
-    </li>
-    
-    <li style="border:none;">
-    <img src="images/antivibration_boring_bars.jpg" alt="" />
-<h3>Antivibration Boring Bars</h3>
-<p>Antivibration Boring Bars for positive inserts from Dia 8 to Dia 25 recomended 5L/D.<br>
-<br>
-<a href="#"><img src="images/add_cart.jpg" alt="" /></a></p>
-    </li>
-    
-    
-    
-    </ul>
-    
-    
-  </div>
-  <!-- body container --> 
+<div class="mens">    
+  <div class="main">
+     <div class="wrap">
+     	<ul class="breadcrumb breadcrumb__t"><a class="home" href="/">Home</a> / Hot Deals</ul>
+		<div class="clear"></div>
+		<div class="cont span_2_of_3">
+			<!-- Logic for 3 pics in row -->
+				<%j=0%>
+				<%@products.each_with_index do |var,index|%>
+					<%j= j+1%>
+					<%if index!=0 and index%3==0 %>
+						<div class="clear"></div>
+						</div>
+					<%end%>
+					<%if index==0 or index%3==0 %><div class="top-box"><%end%>
+					<div class="col_1_of_3 span_1_of_3"> 
+						<a href=<%= variant_path(var)%>>
+							<div class="inner_content clearfix">
+								<div class="product_image">
+									<img src=<%= var.photos.first.try(:img).try(:url)%> alt=""/>
+								</div>
+								<div class="price">
+									<div class="cart-left">
+										<p class="title"><%= var.name%></p>
+									</div>
+									<div class="cart-right"> </div>
+									<div class="clear"></div>
+								</div>				
+							</div>
+						</a>
+					</div>
+				<%end%>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>

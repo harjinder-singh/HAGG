@@ -29,6 +29,12 @@
 									 Photos
 								</th>
 								<th>
+									Featured
+								</th>
+								<th>
+									Hot Deal
+								</th>
+								<th>
 									Action
 								</th>
 							</tr>
@@ -46,12 +52,18 @@
 											<%end%>
 										</td>
 										<td>
+											<%= check_box_tag :featured, "", var.featured, :"data-target"=>var.id, class: "featured_product" %>
+										</td>
+										<td>
+											<%= check_box_tag :hot_deal, "", var.hot_deal, :"data-target"=>var.id, class: "hot_deals" %>
+										</td>
+										<td>
 											<%= button_to "delete", variant_path(:id => var.id), :method => :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
 										</td>
 									</tr>
 								<%end%>
 								<tr>
-									<td class="center-content" colspan=5>
+									<td class="center-content" colspan=7>
 										<%= link_to "Edit", edit_tool_category_path(@category), class: "btn btn-success pull-right"%>
 									</td>
 								</tr>

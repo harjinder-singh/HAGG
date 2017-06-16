@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
   
   def index
-    @products = Variant.all
+    @featured = Variant.where(:featured => true)
+    @hot_deals = Variant.where(:hot_deal => true)
   end
   
   def about
@@ -18,6 +19,7 @@ class HomeController < ApplicationController
   end
   
   def hot_deal
+   @products = Variant.where(:hot_deal => true)
   end
   
   def contact

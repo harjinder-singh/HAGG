@@ -44,4 +44,39 @@ $(document).ready(function(){
 		}
 	});
 
+	$(".fancybox").fancybox({
+		openEffect: "none",
+		closeEffect: "none"
+	});
+	
+	$(document).on('change', ".featured_product", function(){
+      var variant_id = $(this).data("target");
+      $.ajax({
+          url: "/variants/" + variant_id + "/featured",
+          type: 'get',
+          data: {id: variant_id},
+          success: function(data){
+            alert('Preference Changed!!');
+          },
+          error: function(){
+            alert('Request failed. Sorry, we are analyzing the cause of this problem');
+          }
+        });
+    });
+    
+    $(document).on('change', ".hot_deals", function(){
+      var variant_id = $(this).data("target");
+      $.ajax({
+          url: "/variants/" + variant_id + "/hot_deals",
+          type: 'get',
+          data: {id: variant_id},
+          success: function(data){
+            alert('Preference Changed!!');
+          },
+          error: function(){
+            alert('Request failed. Sorry, we are analyzing the cause of this problem');
+          }
+        });
+    });
+
 });

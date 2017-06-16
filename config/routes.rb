@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   end
 
   resources :variants do
+    get :featured
+    get :hot_deals
   end
 
   resources :photos do
