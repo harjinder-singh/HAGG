@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
+  devise_for :users
+  devise_scope :user do
+    get 'login', to: 'devise/sessions#new'
+    get 'logout', to: 'devise/sessions#destroy'
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   root 'home#index'
   get 'about' => 'home#about'
   get 'products' => 'home#product'
   get 'hot_deals' => 'home#hot_deal'
-  get 'contact' => 'home#contact'
+  get 'contact_us' => 'home#contact'
+  post 'send_email' => 'home#send_email'
+  post 'send_query' => 'home#send_query'
   
   resources :tool_categories do
   end

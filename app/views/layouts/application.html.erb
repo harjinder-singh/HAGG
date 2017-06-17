@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Free Leoshop Website Template | Home :: w3layouts</title>
+		<title>Hagg Mills</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -18,8 +18,12 @@
 			<div class="wrap"> 
 				<div class="cssmenu">
 					<ul>
-						<li><a href="login.html">Log In</a></li> |
-						<li><a href="register.html">Sign Up</a></li>
+						<% if user_signed_in?%>
+							<li>Hi, <%= current_user.email%></li> |
+							<li><a href="/logout">Logout</a></li>
+						<%else%>
+							<li><a href="/login">Log In</a></li>
+						<%end%>
 					</ul>
 				</div>
 				<div class="clear"></div>
@@ -36,22 +40,24 @@
 							<li class="active grid"><a href="/">Home</a></li>
 							<li><a class="color6" href="/about">About Us</a></li>
 							<li><a class="color5" href="/products">Products</a>
-								<div class="megapanel">
-									<div class="col1">
-										<div class="h_nav">
-											<h4>Categories</h4>
-											<ul>
-												<%ToolCategory.all.each do |cat|%>
-													<li><%= link_to cat.name, tool_category_path(cat)%></li>
-												<%end%>
-												<li><%= link_to "+Add New Product", new_tool_category_path%></li>
-											</ul>
+								<% if user_signed_in? %>
+									<div class="megapanel">
+										<div class="col1">
+											<div class="h_nav">
+												<h4>Categories</h4>
+												<ul>
+													<%ToolCategory.all.each do |cat|%>
+														<li><%= link_to cat.name, tool_category_path(cat)%></li>
+													<%end%>
+													<li><%= link_to "+Add New Product", new_tool_category_path%></li>
+												</ul>
+											</div>
 										</div>
 									</div>
-								</div>
+								<%end%>
 							</li>
 							<li><a class="color6" href="/hot_deals">Hot Deals</a></li>
-							<li><a class="color6" href="other.html">Contact</a></li>
+							<li><a class="color6" href="/contact_us">Contact</a></li>
 						</ul>
 					</div>
 				</div>

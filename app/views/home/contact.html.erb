@@ -1,41 +1,70 @@
-  <!-- body container -->
-  <div id="home_container">
-    <h1>Contact Us</h1>
-    <p><strong>Manufacturing Unit :</strong><br>
-HAGG MILL STORE PRIVATE LIMITED<br>
-D-35, 1st Floor, Sec-10, Noida.(u.p.) India<br>
-<br>
-<strong>Phone No:</strong> +91-120-4322779 <br>
-<strong>Cell Phone:</strong> +91-9891516863 ,9891046740 <br>
-<strong>Email:</strong> <a href="mailto:sawan.inder@gmail.com">sawan.inder@gmail.com</a>/&nbsp;&nbsp;<a href="mailto:sawan.inder@gmail.com">sawan2005_noida@yahoo.co.in</a><br><br>
-    </p>
-<h4>Send online communication to us : </h4>
-
-<div class="center-content">
-        <form action="" method="post" name="form1" id="form1" onSubmit="return validateForm(this)">
-          <div class="left_txt">Full Name:<span class="red">*</span></div>
-          <div class="right_box1">
-            <input name="fname" type="text"  id="fname" title="First Name" lang="must" />
-          </div>
-          <div class="left_txt">Email Id:<span class="red">*</span></div>
-          <div class="right_box1">
-            <input name="email" type="text"  id="email" title="Email" lang="mustemail"/>
-          </div>
-          <div class="left_txt">Phone No:<span class="red">*</span></div>
-          <div class="right_box1">
-            <input name="phone" type="text"  id="phone" title="Phone Number" lang="mustint" />
-          </div>
-          <div class="left_txt">Message:<span class="red">*</span></div>
-          <div class="right_textarea_box">
-            <textarea name="Messages" type="Messages" id="Messages" cols="" rows=""></textarea>
-          </div>
-          <div class="submit_box">
-            <input type="submit" value="Submit" class="large awesome" onClick="if(validateForm(document.getElementById('form1'))){ document.form1.submit();};"style="cursor:pointer;" >
-          </div>
-        </form>
-      </div>
-
-
-    
-  </div>
-  <!-- body container --> 
+<div class="mens">
+<div class="main">
+	<div class="wrap">
+		<ul class="breadcrumb breadcrumb__t"><a class="home" href="#">Home</a> / Contact Us</ul>
+		<div class="clear"></div>
+		<div class="row">
+			<div class="col-md-6">
+				<!-- BEGIN PORTLET-->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							Our Address
+						</h3>
+					</div>
+					<div class="panel-body form">
+						<p><strong>Manufacturing Unit :</strong><br>
+							HAGG MILL STORE PRIVATE LIMITED<br>
+							D-35, 1st Floor, Sec-10, Noida.(u.p.) India<br><br>
+							<strong>Phone No:</strong> +91-120-4322779 <br>
+							<strong>Cell Phone:</strong> +91-9891516863 ,9891046740 <br>
+							<strong>Email:</strong> <a href="mailto:sawan.inder@gmail.com">sawan.inder@gmail.com</a>/&nbsp;&nbsp;<a href="mailto:sawan.inder@gmail.com">sawan2005_noida@yahoo.co.in</a><br><br>
+						</p>
+					</div>
+				</div>
+				<!-- END PANEL-->
+			</div>
+			<div class="col-md-6">
+				<!-- BEGIN PORTLET-->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							Email Us
+						</h3>
+					</div>
+					<div class="panel-body form">
+						<%= form_tag send_email_path, :method => :post do |f| %>
+							<div class="col-md-6">
+								<%= text_field_tag :name, "", class: "form-control", placeholder: "Name", required: true %>
+							</div>
+							<div class="col-md-6">
+								<%= text_field_tag :email, "", :class => "form-control", placeholder: "Email", required: true %>
+							</div>
+							<br />
+							<br />
+							<br />
+							<div class="col-md-6">
+								<%= text_field_tag :phone_no, "", placeholder: "Phone No",:class => "form-control", required: true%>
+							</div>
+							<br />
+							<br />
+							<br />
+							<div class="col-md-12">
+								 <%= text_area_tag :message, "",placeholder: "Message", :class => "form-control", required: true%>
+							</div>
+							<br />
+							<br />
+							<br />
+							<br />
+							<div class="submit">
+								<input type="submit" value="Submit" style="margin-left: 15px">
+							</div>
+						<%end%>
+					</div>
+				</div>
+				<!-- END PANEL-->
+			</div>
+		</div>
+	</div>
+</div>
+</div>

@@ -8,8 +8,8 @@
 						<% @variant.photos.each do |pic|%>
 						<li>
 							<a href="optionallink.html">
-								<img class="etalage_thumb_image" src=<%= pic.img.url(:large)%> class="img-responsive" />
-								<img class="etalage_source_image" src=<%= pic.img.url(:large)%>  class="img-responsive" title="" />
+								<img class="etalage_thumb_image" src=<%= pic.img.url%> class="img-responsive" />
+								<img class="etalage_source_image" src=<%= pic.img.url%>  class="img-responsive" title="" />
 							</a>
 						</li>
 						<%end%>
@@ -17,61 +17,13 @@
 					<div class="clearfix"></div>
 				</div>
 				<div class="desc1 span_3_of_2">
-					<h3 class="m_3">Lorem ipsum dolor sit amet</h3>
-					<p class="m_5">Rs. 888 <span class="reducedfrom">Rs. 999</span> <a href="#">click for offer</a></p>
+					<h3 class="m_3"><%= @variant.name%></h3>
 					<div class="btn_form">
-						<form>
-							<input type="submit" value="buy" title="">
-						</form>
+						<%= link_to 'Send Query', "#", data: {toggle: "modal", target: "#myModal"}, class: "btn btn-primary" %>
 					</div>
-					<span class="m_link"><a href="#">login to save in wishlist</a> </span>
-					<p class="m_text2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit </p>
+					<p class="m_text2"><%= @variant.desc %></p>
 				</div>
 				<div class="clear"></div>	
-				<!--<div class="clients">
-					<h3 class="m_3">10 Other Products in the same category</h3>
-					<ul id="flexiselDemo3">
-						<li><img src="/images/s5.jpg" /><a href="#">Category</a><p>Rs 600</p></li>
-						<li><img src="/images/s6.jpg" /><a href="#">Category</a><p>Rs 850</p></li>
-						<li><img src="/images/s7.jpg" /><a href="#">Category</a><p>Rs 900</p></li>
-						<li><img src="/images/s8.jpg" /><a href="#">Category</a><p>Rs 550</p></li>
-						<li><img src="/images/s9.jpg" /><a href="/">Category</a><p>Rs 750</p></li>
-					</ul>
-					<script type="text/javascript">
-	$(document).ready(function(){
-		$("#flexiselDemo3").flexisel({
-		visibleItems: 5,
-		animationSpeed: 1000,
-		autoPlay: false,
-		autoPlaySpeed: 3000,
-		pauseOnHover: true,
-		enableResponsiveBreakpoints: true,
-		responsiveBreakpoints: { 
-			portrait: { 
-				changePoint:480,
-				visibleItems: 1
-			}, 
-			landscape: { 
-				changePoint:640,
-				visibleItems: 2
-			},
-			tablet: { 
-				changePoint:768,
-				visibleItems: 3
-			}
-		}
-	});
-	});
-</script>
-				</div>-->
-				<div class="toogle">
-					<h3 class="m_3">Product Details</h3>
-					<p class="m_text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
-				</div>
-				<div class="toogle">
-					<h3 class="m_3">More Information</h3>
-					<p class="m_text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
-				</div>
 			</div>
 			<div class="rsingle span_1_of_single">
 				<h5 class="m_1">Categories</h5>
@@ -86,4 +38,78 @@
 			<div class="clear"></div>
 		</div>
 	</div>
+</div>
+
+<div tabindex="-1" class="modal fade" id="myModal" role="dialog" style="z-index: 999999">
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+		<button class="close" type="button" data-dismiss="modal">×</button>
+		<h3 class="modal-title">Send Enquiry Form</h3>
+	</div>
+	<div class="modal-body">
+		<div class="row">
+			<div class="col-md-12">
+				<%= form_tag send_query_path, :method => :post do |f|  %>
+					<div class="form-group">
+						<div class="col-sm-12">
+							<label for="name">Product</label>
+							<%= text_field_tag :product_name, @variant.name, class: "form-control"%>
+						</div>
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+					<div class="form-group">
+						<div class="col-sm-12">
+							<label for="message">Query</label>
+							<%= text_area_tag :query, "I am interested. Kindly send the quotation for the same.", placeholder: "Message", :class => "form-control", required: true%>
+						</div>
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+					<div class="form-group">
+						<div class="col-sm-12">
+							<label for="name">Your Name</label>
+							<%= text_field_tag :name, "", class: "form-control", placeholder: "Your Name", required: true %>
+						</div>
+					</div>
+					<br />
+					<br />
+					<br />
+					<div class="form-group">
+						<div class="col-sm-12">
+							<label for="email_id">Email Id</label>
+							<%= text_field_tag :email, "", :class => "form-control", placeholder: "Email", required: true %>
+						</div>
+					</div>
+					<br />
+					<br />
+					<br />
+					<div class="form-group">
+						<div class="col-sm-12">
+							<label for="service_id">Phone No</label>
+							<%= text_field_tag :phone_no, "", placeholder: "Phone No",:class => "form-control", required: true%>
+						</div>
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+					<div class="form-group text-center">
+						<!-- form Submit and reset button -->
+						<button type="submit" class="btn btn-success">Submit</button>
+					</div>
+				<%end%>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-default" data-dismiss="modal">Close</button>
+	</div>
+   </div>
+  </div>
 </div>

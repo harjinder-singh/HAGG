@@ -1,5 +1,7 @@
 class ToolCategoriesController < ApplicationController
-  
+
+  before_action :authenticate_user!
+
   def new
     @category = ToolCategory.new
     @variant = @category.variants.build

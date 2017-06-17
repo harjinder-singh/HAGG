@@ -1,0 +1,28 @@
+<div class="login">
+	<div class="wrap">
+		<div class="col_1_of_login span_1_of_login">
+			<div class="login-title">
+				<h4 class="title">Registered Customers</h4>
+				<div id="loginbox" class="loginbox">
+					<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+						<%= devise_error_messages! %>
+						<fieldset class="input">
+							<p id="login-form-username">
+								<%= f.label :email %>
+								<%= f.email_field :email, class: "inputbox", size:"18"%>
+							</p>
+							<p id="login-form-password">
+								<%= f.label :password %><br />
+								<%= f.password_field :password, autocomplete: "off", class: "inputbox", size:"18"%>
+							</p>
+							<div class="remember">
+								<input type="submit" name="Submit" class="button" value="Login"><div class="clear"></div>
+							</div>
+						</fieldset>
+					<%end%>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
