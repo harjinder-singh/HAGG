@@ -91,8 +91,27 @@
 					<br />
 					<div class="form-group">
 						<div class="col-sm-12">
-							<label for="service_id">Phone No</label>
+							<label for="phone_no">Phone No</label>
 							<%= text_field_tag :phone_no, "", placeholder: "Phone No",:class => "form-control", required: true%>
+						</div>
+					</div>
+					<br />
+					<br />
+					<br />
+					<div class="form-group">
+						<div class="col-sm-12">
+							<label for="company">Company</label>
+							<%= text_field_tag :company, "", placeholder: "Company Name (Leave blank if individual)",:class => "form-control"%>
+						</div>
+					</div>
+					<br />
+					<br />
+					<br />
+					<div class="form-group">
+						<div class="col-sm-12">
+							<label for="company_type">Type</label>
+								<%= radio_button_tag 'com_type', 'dealer', true %> Dealer
+								<%= radio_button_tag 'com_type', 'individual' %> Individual
 						</div>
 					</div>
 					<br />
