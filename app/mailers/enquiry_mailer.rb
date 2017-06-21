@@ -6,7 +6,7 @@ class EnquiryMailer < ActionMailer::Base
     @email = email
     @phone_no = phone_no
     @message = message
-    mail(to: "harjinderfcsi@gmail.com", subject: "Message from Mr/Mrs #{@name}", from:"from@example.com")
+    mail(to: ENV["admin_mail"], subject: "Message from Mr/Mrs #{@name}", from:"from@example.com")
   end
   
   def product_enquiry(name, email, phone_no, product_name, query)
@@ -15,7 +15,7 @@ class EnquiryMailer < ActionMailer::Base
     @phone_no = phone_no
     @message = query
     @product_name = product_name
-    mail(to: "harjinderfcsi@gmail.com", subject: "Query received about #{@product_name} by Mr/Mrs #{@name}", from:"from@example.com")
+    mail(to: ENV["admin_mail"], subject: "Query received about #{@product_name} by Mr/Mrs #{@name}", from:"from@example.com")
   end
 
 end
