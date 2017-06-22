@@ -15,7 +15,7 @@ set :deploy_to, '/home/hagg/apps/hagg'
 set :repository, 'git@github.com:harjinder-singh/hagg.git'
 set :branch, 'master'
 set :shared_dirs, fetch(:shared_dirs, []).push('log', 'tmp/pids', 'tmp/sockets', 'public/uploads')
-set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/secrets.yml', 'config/puma.rb')
+set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/secrets.yml', 'config/puma.rb', 'config/application.yml' )
 
 #Username of ssh user for access to the remote server.
 set :user, 'hagg'
@@ -43,7 +43,10 @@ end
 # Put any custom commands you need to run at setup
 # All paths in `shared_dirs` and `shared_paths` will be created on their own.
 task :setup do
-  # command %{rbenv install 2.3.0}
+  command %[touch "#{fetch(:shared_path)}/config/database.yml"]
+  command %[touch "#{fetch(:shared_path)}/config/secrets.yml"]
+  command %[touch "#{fetch(:shared_path)}/config/puma.rb"]
+  comment "Be sure to edit '#{fetch(:shared_path)}/config/database.yml', 'secrets.yml', 'puma.rb', and application.rb."
 end
 
 desc "Deploys the current version to the server."
@@ -53,18 +56,18 @@ task :deploy do
   deploy do
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
+    comment "Deploying #{fetch(:application_name)} to #{fetch(:domain)}:#{fetch(:deploy_to)}"
     invoke :'git:clone'
     invoke :'deploy:link_shared_paths'
+    invoke :'rvm:load_env_vars'
     invoke :'bundle:install'
     invoke :'rails:db_migrate'
+    command %{#{fetch(:rails)} db:seed}
     invoke :'rails:assets_precompile'
     invoke :'deploy:cleanup'
 
     on :launch do
-      in_path(fetch(:current_path)) do
-        command %{mkdir -p tmp/}
-        command %{touch tmp/restart.txt}
-      end
+      invoke :'puma:phased_restart'
     end
   end
 
