@@ -39,9 +39,9 @@
 						<ul class="megamenu skyblue">
 							<li class="active grid"><a href="/">Home</a></li>
 							<% if user_signed_in? %>
-								<li><a class="color6" href="/about">About Us</a></li>
-							<%else%>
 								<li><a class="color6" href="/contacts">Contacts</a></li>
+							<%else%>
+								<li><a class="color6" href="/about">About Us</a></li>
 							<%end%>
 							<li><a class="color5" href="/products">Products</a>
 								<% if user_signed_in? %>
