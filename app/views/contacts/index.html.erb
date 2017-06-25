@@ -1,0 +1,100 @@
+<div class="main">
+	<div class="wrap">
+		<ul class="breadcrumb breadcrumb__t"><a class="home" href="/">Home</a> /Contacts</ul>
+		<div class="clear"></div>
+		<div class="row">
+			<div class="col-md-12">
+				<!-- BEGIN SAMPLE TABLE PORTLET-->
+				<div class="panel panel-success">
+					<div class="panel-heading clearfix">
+						<h4 class="panel-title pull-left" style="padding-top: 7.5px;">Contacts</h4>
+						<div class="btn-group pull-right">
+							<%= link_to 'Import CSV', "#", data: {toggle: "modal", target: "#myModal"}, class: "btn btn-primary pull-right" %>
+						</div>
+					</div>
+					<div class="panel-body">
+						<div class="table-responsive">
+							<table class="table table-hover">
+							<thead>
+							<tr>
+								<th width="10%">
+									 #
+								</th>
+								<th width="25%">
+									 Name
+								</th>
+								<th width="25%">
+									 Email
+								</th>
+								<th width="25%">
+									 Phone No
+								</th>
+								<th width="15%">
+									Action
+								</th>
+							</tr>
+							</thead>
+							<tbody>
+								<% @contacts.each_with_index do |con,i|%>
+									<tr>
+										<td><%= i+1 %></td>
+										<td><%= con.name %></td>
+										<td><%= con.email %></td>
+										<td>
+											<%= con.phone_no%>
+										</td>
+										<td>
+											<div class="btn-group pull-left">
+												<%= link_to "Edit", edit_contact_path(:id => con.id), class: "btn btn-success"%>
+											</div>
+											<div class="btn-group pull-right">
+												<%= button_to "Delete", contact_path(:id => con.id), :method => :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+											</div>
+										</td>
+									</tr>
+								<%end%>
+							</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- END SAMPLE TABLE PORTLET-->
+			</div>
+		</div>
+	</div>
+</div>
+<div tabindex="-1" class="modal fade" id="myModal" role="dialog" style="z-index: 999999">
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+		<button class="close" type="button" data-dismiss="modal">×</button>
+		<h3 class="modal-title">Send Enquiry Form</h3>
+	</div>
+	<div class="modal-body">
+		<div class="row">
+			<div class="col-md-12">
+				<%= form_tag import_contacts_contacts_path, multipart: true do %>
+					<div class="form-group">
+						<div class="col-sm-12">
+							<label for="name">CSV File</label>
+							<%= file_field_tag :file, class: "form-control"%>
+						</div>
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+					<div class="form-group text-center">
+						<!-- form Submit and reset button -->
+						<button type="submit" class="btn btn-success">Submit</button>
+					</div>
+				<%end%>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-default" data-dismiss="modal">Close</button>
+	</div>
+   </div>
+  </div>
+</div>

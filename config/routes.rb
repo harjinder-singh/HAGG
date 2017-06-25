@@ -24,6 +24,10 @@ Rails.application.routes.draw do
 
   resources :photos do
   end
+  
+  resources :contacts do
+    post :import_contacts, on: :collection
+  end
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
