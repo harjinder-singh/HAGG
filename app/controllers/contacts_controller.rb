@@ -7,7 +7,6 @@ class ContactsController < ApplicationController
   end
  
  def new
-   Contact.delete_all
    @contact = Contact.new
  end
  

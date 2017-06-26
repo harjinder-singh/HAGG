@@ -27,8 +27,6 @@ gem 'nested_form_fields'
 gem 'devise'
 gem "figaro"
 gem 'kaminari'
-gem 'que'
-gem 'que-web'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

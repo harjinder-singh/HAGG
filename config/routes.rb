@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  require "que/web"
   devise_for :users
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
@@ -31,5 +30,4 @@ Rails.application.routes.draw do
     post :import_contacts, on: :collection
   end
   
-  mount Que::Web => "/que"
 end

@@ -26,7 +26,6 @@ class VariantsController < ApplicationController
   
   def send_promotion
     @variant = Variant.find(params[:variant_id])
-    EmailQueue.enqueue(@variant.id)
     flash[:notice] = "Email added to queue"
     redirect_to :back
   end
