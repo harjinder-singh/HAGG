@@ -1,0 +1,45 @@
+<div class="main">
+	<div class="wrap">
+		<ul class="breadcrumb breadcrumb__t"><a class="home" href="#">Home</a> / Search/ <%= params[:search]%></ul>
+		<div class="clear"></div>
+		<% if @variants.present? %>
+			<div class="section group">
+				<div class="cont span_2_of_3">
+					<h2 class="head">Search Products</h2>
+					<!-- Logic for 3 pics in row -->
+					<%j=0%>
+					<%@variants.each_with_index do |var,index|%>
+						<%j= j+1%>
+						<%if index!=0 and index%3==0 %>
+							<div class="clear"></div>
+							</div>
+						<%end%>
+						<%if index==0 or index%3==0 %><div class="top-box"><%end%>
+						<div class="col_1_of_3 span_1_of_3"> 
+							<a href="<%= variant_path(var)%>">
+								<div class="inner_content clearfix">
+									<div class="product_image">
+										<img src=<%= var.photos.first.try(:img).try(:url)%> alt=""/>
+									</div>
+									<!--<div class="sale-box"><span class="on_sale title_shop">New</span></div>-->	
+									<div class="price">
+										<div class="cart-left">
+											<p class="title"><%= var.name %></p>
+										</div>
+										<div class="cart-right"> </div>
+										<div class="clear"></div>
+									</div>				
+								</div>
+							</a>
+						</div>
+					<%end%>
+					<div class="clear"></div></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		<% else %>
+			<p>There are no products containing the term(s) <%= params[:search] %>.</p>
+		<% end %>
+	</div>
+</div>
+  

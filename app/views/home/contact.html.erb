@@ -35,22 +35,25 @@
 					<div class="panel-body form">
 						<%= form_tag send_email_path, :method => :post do |f| %>
 							<div class="col-md-6">
-								<%= text_field_tag :name, "", class: "form-control", placeholder: "Name", :"data-validation" => "required", :"data-validation-error-msg" => "You forget to enter name :)" %>
+								<%= text_field_tag :name, "", class: "form-control", placeholder: "Name*", :"data-validation" => "required", :"data-validation-error-msg" => "You forget to enter name :)" %>
 							</div>
 							<div class="col-md-6">
-								<%= text_field_tag :email, "", :class => "form-control", placeholder: "Email", :"data-validation" => "email", :"data-validation-error-msg" => "Please enter valid email for eg: user@example.com"  %>
+								<%= text_field_tag :email, "", :class => "form-control", placeholder: "Email*", :"data-validation" => "email", :"data-validation-error-msg" => "Please enter valid email for eg: user@example.com"  %>
 							</div>
 							<br />
 							<br />
 							<br />
 							<div class="col-md-6">
-								<%= text_field_tag :phone_no, "", placeholder: "Phone No",:class => "form-control", :"data-validation" => "custom", :"data-validation-regexp" => "([0-9]{10})", :"data-validation-error-msg" => "Enter valid phone number eg: 9458694725"%>
+								<%= text_field_tag :phone_no, "", placeholder: "Phone No*",:class => "form-control", :"data-validation" => "custom", :"data-validation-regexp" => "([0-9]{10})", :"data-validation-error-msg" => "Enter valid phone number eg: 9458694725"%>
+							</div>
+							<div class="col-md-6">
+								<%= text_field_tag :company, "", :class => "form-control", placeholder: "Company"%>
 							</div>
 							<br />
 							<br />
 							<br />
 							<div class="col-md-12">
-								 <%= text_area_tag :message, "",placeholder: "Message", :class => "form-control", :"data-validation" => "required"%>
+								 <%= text_area_tag :message, "",placeholder: "Message*", :class => "form-control", :"data-validation" => "required"%>
 							</div>
 							<br />
 							<br />

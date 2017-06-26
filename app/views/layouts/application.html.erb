@@ -39,7 +39,7 @@
 			<div class="wrap">
 				<div class="header-bottom-left">
 					<div class="logo">
-						<a href="index.html"><img src="/images/logo.png" alt=""/></a>
+						<a href="/"><img src="/images/logo.png" alt=""/></a>
 					</div>
 					<div class="menu">
 						<ul class="megamenu skyblue">
@@ -75,30 +75,11 @@
 					</div>
 				</div>
 				<div class="header-bottom-right">
-					<div class="search">	  
-						<input type="text" name="s" class="textbox" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
-						<input type="submit" value="Subscribe" id="submit" name="submit">
+					<%= form_tag search_path, :method => :get, class: "search" do |f|%>
+						<input type="text" name="search" class="textbox" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+						<input type="submit" id="submit">
 						<div id="response"> </div>
-					</div>
-					<div class="tag-list">
-						<ul class="icon1 sub-icon1 profile_img">
-							<li><a class="active-icon c1" href="#"> </a>
-								<ul class="sub-icon1 list">
-									<li><h3>sed diam nonummy</h3><a href=""></a></li>
-									<li><p>Lorem ipsum dolor sit amet, consectetuer  <a href="">adipiscing elit, sed diam</a></p></li>
-								</ul>
-							</li>
-						</ul>
-						<ul class="icon1 sub-icon1 profile_img">
-							<li><a class="active-icon c2" href="#"> </a>
-								<ul class="sub-icon1 list">
-									<li><h3>No Products</h3><a href=""></a></li>
-									<li><p>Lorem ipsum dolor sit amet, consectetuer  <a href="">adipiscing elit, sed diam</a></p></li>
-								</ul>
-							</li>
-						</ul>
-						<ul class="last"><li><a href="#">Cart(0)</a></li></ul>
-					</div>
+					<%end%>
 				</div>
 				<div class="clear"></div>
 			</div>

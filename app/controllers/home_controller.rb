@@ -30,7 +30,8 @@ class HomeController < ApplicationController
     email = params[:email]
     phone_no = params[:phone_no]
     message = params[:message]
-    EnquiryMailer.enquiry(name, email, phone_no, message).deliver_now
+    company = params[:company]
+    EnquiryMailer.enquiry(name, email, phone_no, message, company).deliver_now
     flash[:notice] = "Email Sent Sucessfully!!"
     redirect_to "/contact_us"
   end
@@ -46,6 +47,10 @@ class HomeController < ApplicationController
     EnquiryMailer.product_enquiry(name, email, phone_no, product_name, query, company, person_type).deliver_now
     flash[:notice] = "Email Sent Sucessfully!!"
     redirect_to root_path
+  end
+
+  def search
+    @variants = Variant.search(params[:search]).order("created_at DESC")
   end
 
 end

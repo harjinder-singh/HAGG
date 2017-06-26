@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   get 'contact_us' => 'home#contact'
   post 'send_email' => 'home#send_email'
   post 'send_query' => 'home#send_query'
-  
+  get 'search' => 'home#search'
+
   resources :tool_categories do
   end
 

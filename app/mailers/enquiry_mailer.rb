@@ -1,11 +1,12 @@
 class EnquiryMailer < ActionMailer::Base
 
 
-  def enquiry(name, email, phone_no, message)
+  def enquiry(name, email, phone_no, message, company)
     @name = name
     @email = email
     @phone_no = phone_no
     @message = message
+    @company = company
     mail(to: ENV["admin_mail"], subject: "Message from Mr/Mrs #{@name}", from:"from@example.com")
   end
   
