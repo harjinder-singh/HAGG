@@ -1,6 +1,6 @@
 <div class="main">
 	<div class="wrap">
-		<ul class="breadcrumb breadcrumb__t"><a class="home" href="#">Home</a> / <a href="#">Dolor sit amet</a> / Lorem ipsum dolor sit amet</ul>
+		<ul class="breadcrumb breadcrumb__t"><a class="home" href="#">Home</a> / <a href="/contacts">Contacts</a> / Edit</ul>
 		<div class="clear"></div>
 		<div class="row">
 			<div class="col-md-12">
@@ -13,40 +13,7 @@
 					</div>
 					<div class="panel-body form">
 						<%= form_for @contact, url: contact_path, method: :put, class: "form-horizontal form-bordered" do |f| %>
-							<div class="form-group col-sm-12">
-								<label class="col-sm-3 control-label">Name</label>
-								<div class="col-sm-4">
-									<div class="input-group">
-										<%= f.text_field :name, class: "form-control",placeholder: "Enter Name"%>
-									</div>
-								</div>
-							</div>
-							<div class="form-group col-sm-12">
-								<label class="col-sm-3 control-label">Email</label>
-								<div class="col-sm-4">
-									<div class="input-group">
-										<%= f.text_field :email, class: "form-control",placeholder: "Enter Email"%>
-									</div>
-								</div>
-							</div>
-							<div class="form-group col-sm-12">
-								<label class="col-sm-3 control-label">Phone No</label>
-								<div class="col-sm-4">
-									<div class="input-group">
-										<%= f.text_field :phone_no, class: "form-control",placeholder: "Enter Phone No"%>
-									</div>
-								</div>
-							</div>
-							<div class="form-actions fluid">
-								<div class="row">
-									<div class="col-md-12">
-										<div class="col-md-offset-3 col-md-9">
-											<button type="submit" class="btn purple"><i class="fa fa-check"></i> Submit</button>
-											<button type="button" class="btn default">Cancel</button>
-										</div>
-									</div>
-								</div>
-							</div>
+							<%= render "form", :f => f%>
 						<%end%>
 					</div>
 				</div>

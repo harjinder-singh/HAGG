@@ -7,6 +7,7 @@
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 		<%= csrf_meta_tag%>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 		<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
@@ -29,6 +30,11 @@
 				<div class="clear"></div>
 			</div>
 		</div>
+		<div id="main" class="col-md-12">
+			<div class="wrap">
+				<%= render "shared/flash" %>
+			</div>
+		</div>
 		<div class="header-bottom">
 			<div class="wrap">
 				<div class="header-bottom-left">
@@ -43,8 +49,8 @@
 							<%else%>
 								<li><a class="color6" href="/about">About Us</a></li>
 							<%end%>
-							<li><a class="color5" href="/products">Products</a>
-								<% if user_signed_in? %>
+							<% if user_signed_in? %>
+								<li><a class="color5" href="#">Products</a>
 									<div class="megapanel">
 										<div class="col1">
 											<div class="h_nav">
@@ -58,8 +64,11 @@
 											</div>
 										</div>
 									</div>
-								<%end%>
-							</li>
+								
+								</li>
+							<%else%>
+								<li><a class="color5" href="/products">Products</a></li>
+							<%end%>
 							<li><a class="color6" href="/hot_deals">Hot Deals</a></li>
 							<li><a class="color6" href="/contact_us">Contact</a></li>
 						</ul>

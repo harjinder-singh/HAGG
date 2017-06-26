@@ -5,7 +5,7 @@
 			<span class="input-group-addon">
 				<i class="fa fa-user"></i>
 			</span>
-			<%= f.text_field :name, class: "form-control",placeholder: "Enter Category Name"%>
+			<%= f.text_field :name, class: "form-control",placeholder: "Enter Category Name", :"data-validation" => "required", :"data-validation-error-msg" => "Please enter Category name" %>
 		</div>
 	</div>
 </div>
@@ -17,7 +17,7 @@
 				<span class="input-group-addon">
 					<i class="fa fa-user"></i>
 				</span>
-				<%= ff.text_field :name, class: "form-control",placeholder: "Enter Variant Name"%>
+				<%= ff.text_field :name, class: "form-control",placeholder: "Enter Variant Name", :"data-validation" => "required", :"data-validation-error-msg" => "Please enter Variant name"%>
 			</div>
 		</div>
 	</div>
@@ -28,7 +28,7 @@
 				<span class="input-group-addon">
 					<i class="fa fa-user"></i>
 				</span>
-				<%= ff.text_area :desc, class: "form-control"%>
+				<%= ff.text_area :desc, class: "form-control", :"data-validation" => "required", :"data-validation-error-msg" => "Please enter Variant Description"%>
 			</div>
 		</div>
 	</div>

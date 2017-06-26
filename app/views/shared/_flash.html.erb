@@ -1,0 +1,16 @@
+<% if notice %>
+  <div class="alert alert-info alert_top_spacing no-spacing-alert" style="margin-top: 10px" >
+    <button class="close" data-dismiss="alert" type="button">
+      &times;
+    </button>
+    <%= notice %>
+  </div>
+<%end%>
+<% if alert %>
+  <div class="alert alert-danger alert_top_spacing no-spacing-alert" style="margin-top: 10px" >
+    <button class="close" data-dismiss="alert" type="button">
+      &times;
+    </button>
+    <%= alert %>
+  </div>
+<%end%>

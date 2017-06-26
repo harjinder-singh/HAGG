@@ -107,6 +107,14 @@ $(document).ready(function(){
 	
 	  ga('create', 'UA-101220825-1', 'auto');
 	  ga('send', 'pageview');
-
+	
+	setTimeout(function() {
+    $('.alert_top_spacing').fadeOut('slow');
+	}, 3000);
+	
+	$.validate({
+	    lang: 'en',
+	    modules : 'security'
+	  });
 
 });

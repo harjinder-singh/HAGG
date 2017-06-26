@@ -19,7 +19,7 @@
 				<div class="desc1 span_3_of_2">
 					<h3 class="m_3"><%= @variant.name%></h3>
 					<div class="btn_form">
-						<%= link_to 'Send Query', "#", data: {toggle: "modal", target: "#myModal"}, class: "btn btn-primary" %>
+						<%= link_to 'Send Query', "#", data: {toggle: "modal", target: "#myModal"}, class: "btn btn-primary", style: "z-index: auto;" %>
 					</div>
 					<p class="m_text2"><%= @variant.desc %></p>
 				</div>
@@ -52,70 +52,74 @@
 			<div class="col-md-12">
 				<%= form_tag send_query_path, :method => :post do |f|  %>
 					<div class="form-group">
-						<div class="col-sm-12">
+						<div class="col-sm-4">
 							<label for="name">Product</label>
-							<%= text_field_tag :product_name, @variant.name, class: "form-control"%>
+						</div>
+						<div class="col-sm-8">
+							<%= text_field_tag :product_name, @variant.name, class: "form-control", :"data-validation" => "required", :"data-validation-error-msg" => "Please enter Product name"%>
 						</div>
 					</div>
 					<br />
 					<br />
-					<br />
-					<br />
 					<div class="form-group">
-						<div class="col-sm-12">
+						<div class="col-sm-4">
 							<label for="message">Query</label>
-							<%= text_area_tag :query, "I am interested. Kindly send the quotation for the same.", placeholder: "Message", :class => "form-control", required: true%>
+						</div>
+						<div class="col-sm-8">
+							<%= text_area_tag :query, "I am interested. Kindly send the quotation for the same.", placeholder: "Message", :class => "form-control", :"data-validation" => "required", :"data-validation-error-msg" => "Please specify your query"%>
 						</div>
 					</div>
 					<br />
 					<br />
-					<br />
-					<br />
 					<div class="form-group">
-						<div class="col-sm-12">
-							<label for="name">Your Name</label>
-							<%= text_field_tag :name, "", class: "form-control", placeholder: "Your Name", required: true %>
+						<div class="col-sm-4">
+							<label for="name">Name</label>
+						</div>
+						<div class="col-sm-8">
+							<%= text_field_tag :name, "", class: "form-control", placeholder: "Your Name", :"data-validation" => "required", :"data-validation-error-msg" => "Please enter your name" %>
 						</div>
 					</div>
 					<br />
 					<br />
-					<br />
 					<div class="form-group">
-						<div class="col-sm-12">
-							<label for="email_id">Email Id</label>
-							<%= text_field_tag :email, "", :class => "form-control", placeholder: "Email", required: true %>
+						<div class="col-sm-4">
+							<label for="email">Email</label>
+						</div>
+						<div class="col-sm-8">
+							<%= text_field_tag :email, "", :class => "form-control", placeholder: "Email", :"data-validation" => "email", :"data-validation-error-msg" => "Please enter valid email for eg: user@example.com" %>
 						</div>
 					</div>
 					<br />
 					<br />
-					<br />
 					<div class="form-group">
-						<div class="col-sm-12">
+						<div class="col-sm-4">
 							<label for="phone_no">Phone No</label>
-							<%= text_field_tag :phone_no, "", placeholder: "Phone No",:class => "form-control", required: true%>
+						</div>
+						<div class="col-sm-8">
+							<%= text_field_tag :phone_no, "", placeholder: "Phone No",:class => "form-control", :"data-validation" => "custom", :"data-validation-regexp" => "([0-9]{10})", :"data-validation-error-msg" => "Enter valid phone number eg: 9458694725"%>
 						</div>
 					</div>
 					<br />
 					<br />
-					<br />
 					<div class="form-group">
-						<div class="col-sm-12">
-							<label for="company">Company</label>
+						<div class="col-sm-4">
+							<label for="Company">Company</label>
+						</div>
+						<div class="col-sm-8">
 							<%= text_field_tag :company, "", placeholder: "Company Name (Leave blank if individual)",:class => "form-control"%>
 						</div>
 					</div>
 					<br />
 					<br />
-					<br />
 					<div class="form-group">
-						<div class="col-sm-12">
-							<label for="company_type">Type</label>
-								<%= radio_button_tag 'com_type', 'dealer', true %> Dealer
-								<%= radio_button_tag 'com_type', 'individual' %> Individual
+						<div class="col-sm-4">
+							<label for="type">Type</label>
+						</div>
+						<div class="col-sm-8">
+								<%= radio_button_tag 'com_type', 'Dealer', true %> Dealer
+								<%= radio_button_tag 'com_type', 'Individual' %> Individual
 						</div>
 					</div>
-					<br />
-					<br />
 					<br />
 					<br />
 					<div class="form-group text-center">

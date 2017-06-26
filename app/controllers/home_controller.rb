@@ -31,6 +31,7 @@ class HomeController < ApplicationController
     phone_no = params[:phone_no]
     message = params[:message]
     EnquiryMailer.enquiry(name, email, phone_no, message).deliver_now
+    flash[:notice] = "Email Sent Sucessfully!!"
     redirect_to "/contact_us"
   end
 
@@ -40,7 +41,10 @@ class HomeController < ApplicationController
     name = params[:name]
     email = params[:email]
     phone_no = params[:phone_no]
-    EnquiryMailer.product_enquiry(name, email, phone_no, product_name, query).deliver_now
+    company = params[:company]
+    person_type = params[:com_type]
+    EnquiryMailer.product_enquiry(name, email, phone_no, product_name, query, company, person_type).deliver_now
+    flash[:notice] = "Email Sent Sucessfully!!"
     redirect_to root_path
   end
 

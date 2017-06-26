@@ -9,9 +9,14 @@ class ToolCategoriesController < ApplicationController
   end
   
   def create
-    @category = ToolCategory.create(category_params)
-    flash[:notice] = "Category Added Successfully"
-    redirect_to tool_category_path(@category)
+    @category = ToolCategory.new(category_params)
+    if @category.save
+      flash[:notice] = "Category Added Successfully"
+      redirect_to tool_category_path(@category)
+    else
+      flash[:alert] = "Category Could not be saved. #{@category.errors.full_messages.join(",")}"
+      redirect_to :back
+    end
   end
   
   def index
@@ -28,7 +33,11 @@ class ToolCategoriesController < ApplicationController
   
   def update
     @category = ToolCategory.find(params[:id])
-    @category.update_attributes(category_params)
+    if @category.update_attributes(category_params)
+      flash[:notice] = "Category Updated Successfully"
+    else
+      flash[:alert] = "Category Could not be updated. #{@category.errors.full_messages.join(",")}"
+    end
     redirect_to @category
   end
   

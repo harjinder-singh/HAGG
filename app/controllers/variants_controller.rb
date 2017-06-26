@@ -8,6 +8,7 @@ class VariantsController < ApplicationController
   def destroy
     @variant = Variant.find(params[:id])
     @variant.destroy
+    flash[:notice] = "Variant Deleted Sucessfully!!"
     redirect_to :back
   end
   
