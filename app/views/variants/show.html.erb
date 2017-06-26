@@ -19,7 +19,11 @@
 				<div class="desc1 span_3_of_2">
 					<h3 class="m_3"><%= @variant.name%></h3>
 					<div class="btn_form">
-						<%= link_to 'Send Query', "#", data: {toggle: "modal", target: "#myModal"}, class: "btn btn-primary", style: "z-index: auto;" %>
+						<% if user_signed_in?%>
+							<%= link_to 'Send Promotion', variant_send_promotion_path(@variant), class: "btn btn-success", style: "z-index: auto;" %>
+						<%else%>
+							<%= link_to 'Send Query', "#", data: {toggle: "modal", target: "#myModal"}, class: "btn btn-primary", style: "z-index: auto;" %>
+						<%end%>
 					</div>
 					<p class="m_text2"><%= @variant.desc %></p>
 				</div>

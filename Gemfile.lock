@@ -136,7 +136,14 @@ GEM
       mimemagic (~> 0.3.0)
     pg (0.20.0)
     puma (3.9.1)
+    que (0.13.0)
+    que-web (0.4.0)
+      erubis
+      que (~> 0.8)
+      sinatra
     rack (1.6.8)
+    rack-protection (1.5.3)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.6)
@@ -178,6 +185,10 @@ GEM
     sdoc (0.4.2)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    sinatra (1.4.8)
+      rack (~> 1.5)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
     spring (2.0.2)
       activesupport (>= 4.2)
     sprockets (3.7.1)
@@ -228,6 +239,8 @@ DEPENDENCIES
   paperclip (~> 5.0.0)
   pg
   puma
+  que
+  que-web
   rails (= 4.2.6)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
