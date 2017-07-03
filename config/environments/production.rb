@@ -75,8 +75,8 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
   config.action_mailer.default_url_options = { host: '139.59.34.100' }
   config.action_mailer.delivery_method = :smtp
-  config.actionmailer.performdeliveries = true
-  config.actionmailer.raisedelivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
    :address              => "smtp.gmail.com",
