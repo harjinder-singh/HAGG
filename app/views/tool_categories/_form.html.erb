@@ -11,32 +11,13 @@
 </div>
 <%= f.nested_fields_for :variants do |ff| %>
 	<div class="form-group">
-		<label class="col-sm-3 control-label">Variant Name</label>
-		<div class="col-sm-4">
-			<div class="input-group">
-				<span class="input-group-addon">
-					<i class="fa fa-user"></i>
-				</span>
-				<%= ff.text_field :name, class: "form-control",placeholder: "Enter Variant Name", :"data-validation" => "required", :"data-validation-error-msg" => "Please enter Variant name"%>
-			</div>
-		</div>
-	</div>
-	<div class="form-group">
-		<label class="col-sm-3 control-label">Variant Description</label>
-		<div class="col-sm-4">
-			<div class="input-group">
-				<span class="input-group-addon">
-					<i class="fa fa-user"></i>
-				</span>
-				<%= ff.text_area :desc, class: "form-control", :"data-validation" => "required", :"data-validation-error-msg" => "Please enter Variant Description"%>
-			</div>
-		</div>
+		<label class="col-sm-3 control-label">Upload Variant Image</label>
 	</div>
 	<div class="row">
 		<%= ff.nested_fields_for :photos do |pic| %>
 			<div class="col-md-12">
 				<div class="form-group last">
-					<label class="control-label col-md-3">Upload Image</label>
+					<label class="control-label col-md-3"></label>
 					<div class="col-md-9">
 						<div class="fileinput fileinput-new" data-provides="fileinput">
 							<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
@@ -76,6 +57,29 @@
 		</div>
 		<br />
 	</div>
+	<div class="form-group">
+		<label class="col-sm-3 control-label">Variant Name</label>
+		<div class="col-sm-4">
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class="fa fa-user"></i>
+				</span>
+				<%= ff.text_field :name, class: "form-control",placeholder: "Enter Variant Name", :"data-validation" => "required", :"data-validation-error-msg" => "Please enter Variant name"%>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-3 control-label">Variant Description</label>
+		<div class="col-sm-4">
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class="fa fa-user"></i>
+				</span>
+				<%= ff.text_area :desc, class: "form-control"%>
+			</div>
+		</div>
+	</div>
+	<hr />
 <%end%>
 <div class="row">
 	<div class="col-md-12" align="center">
