@@ -9,17 +9,17 @@ class HomeController < ApplicationController
   end
   
   def product
-    @categories = ToolCategory.all
+    @categories = ToolCategory.all.sort_by{ |var| var.name}
     if params[:id]
       @tool_category = ToolCategory.find(params[:id])
-      @products = @tool_category.variants
+      @products = @tool_category.variants.sort_by{ |var| var.name}
     else
-      @products = Variant.all
+      @products = Variant.all.sort_by{ |var| var.name}
     end
   end
   
   def hot_deal
-   @products = Variant.where(:hot_deal => true)
+    @products = Variant.where(:hot_deal => true)
   end
   
   def contact
