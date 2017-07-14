@@ -1,0 +1,114 @@
+<div class="main">
+	<div class="wrap">
+		<ul class="breadcrumb breadcrumb__t"><a class="home" href="#">Home</a> / Add new product</ul>
+		<div class="clear"></div>
+		<div class="row">
+			<div class="col-md-12">
+				<!-- BEGIN PORTLET-->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							New Product Form
+						</h3>
+					</div>
+					<div class="panel-body form">
+						<%= form_for @variant, url: variants_path, html: {multipart: true, class: "form-horizontal form-bordered"} do |f|  %>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Upload Variant Image</label>
+							</div>
+							<div class="row">
+								<%= f.nested_fields_for :photos do |pic| %>
+									<div class="col-md-12">
+										<div class="form-group last">
+											<label class="control-label col-md-3"></label>
+											<div class="col-md-9">
+												<div class="fileinput fileinput-new" data-provides="fileinput">
+													<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+														<% if pic.object.img.exists? %>
+															<%= image_tag pic.object.img.url(:medium) %><br/>
+														<% else %>
+															<img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
+														<%end%>
+													</div>
+													<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+													</div>
+													<div>
+														<span class="btn btn-default btn-file">
+															<span class="fileinput-new">
+																 Select image
+															</span>
+															<span class="fileinput-exists">
+																 Change
+															</span>
+															<%= pic.file_field :img, class: ""%>
+														</span>
+														<a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">
+															 Remove
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								<%end%>
+								<br />
+								<br />
+								<div class="row">
+									<div class="col-md-12" align="center">
+										<%= f.add_nested_fields_link :photos, '+Add Pics', class: 'btn btn-primary', role: 'button'%>
+									</div>
+								</div>
+								<br />
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Variant Name</label>
+								<div class="col-sm-4">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="fa fa-user"></i>
+										</span>
+										<%= f.text_field :name, class: "form-control",placeholder: "Enter Variant Name", :"data-validation" => "required", :"data-validation-error-msg" => "Please enter Variant name"%>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Variant Description</label>
+								<div class="col-sm-4">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="fa fa-user"></i>
+										</span>
+										<%= f.text_area :desc, class: "form-control"%>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Category Name</label>
+								<div class="col-sm-4">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="fa fa-user"></i>
+										</span>
+										<%= select_tag :category_id, options_from_collection_for_select(@categories, "id", "name"), class: "form-control"%>
+									</div>
+								</div>
+							</div>
+							<hr />
+							<div class="form-actions fluid">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="col-md-offset-3 col-md-9">
+											<button type="submit" class="btn purple"><i class="fa fa-check"></i> Submit</button>
+											<button type="button" class="btn default">Cancel</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						<%end%>
+					</div>
+				</div>
+				<!-- END PANEL-->
+			</div>
+		</div>
+	</div>
+</div>

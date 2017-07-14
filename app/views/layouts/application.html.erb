@@ -43,11 +43,11 @@
 					</div>
 					<div class="menu">
 						<ul class="megamenu skyblue">
-							<li class="active grid"><a href="/">Home</a></li>
+							<li class=<%= action_name=='index' ? "active grid": "" %>><a href="/">Home</a></li>
 							<% if user_signed_in? %>
 								<li><a class="color6" href="/contacts">Contacts</a></li>
 							<%else%>
-								<li><a class="color6" href="/about">About Us</a></li>
+								<li class=<%= action_name=='about' ? "active grid": "" %>><a class="color6" href="/about">About Us</a></li>
 							<%end%>
 							<% if user_signed_in? %>
 								<li><a class="color5" href="#">Products</a>
@@ -66,11 +66,13 @@
 									</div>
 								
 								</li>
+								<li><a class="color6" href="/variants/new">Add Variant</a></li>
 							<%else%>
-								<li><a class="color5" href="/products">Products</a></li>
+								<li class=<%= action_name=='product' ? "active grid": "" %>><a class="color5" href="/products">Products</a></li>
+								<li class=<%= action_name=='hot_deal' ? "active grid": "" %>><a class="color6" href="/hot_deals">Hot Deals</a></li>
+								<li class=<%= action_name=='contact' ? "active grid": "" %>><a class="color6" href="/contact_us">Contact</a></li>
 							<%end%>
-							<li><a class="color6" href="/hot_deals">Hot Deals</a></li>
-							<li><a class="color6" href="/contact_us">Contact</a></li>
+							
 						</ul>
 					</div>
 				</div>
@@ -113,12 +115,12 @@
 									</ul>
 	 							</div>
 								<div class="col_1_of_f_2 span_1_of_f_2">
-									<h3>Our Clients</h3>
+									<h3>Traders</h3>
 									<ul class="f-list1">
-										<li class="active grid"><a href="#">Hero</a></li>
-										<li class="active grid"><a href="#">Tata</a></li>
-										<li><a class="color6" href="#">Birla</a></li>
-										<li><a class="color5" href="#">Reliance</a></li>
+										<li class="active grid"><a href="#">Noida</a></li>
+										<li><a class="color4" href="#">Agra</a></li>
+										<li><a class="color6" href="#">Ahmedabad</a></li>
+										<li><a class="color5" href="#">Rohtak</a></li>
 									</ul>
 								</div>
 								<div class="clear"></div>
@@ -143,7 +145,7 @@
 										<p>D-35, 1st Floor, Sec-10, Noida.(u.p.)</p>
 										<p>India</p>
 										<p>Phone:+91-120-4557000 </p>
-										<p>Email: <span>sawan.inder@gmail.com</span></p>
+										<p>Email: <span>pms.hagg@gmail.com, hagg_toolings@yahoo.com</span></p>
 									</div>
 									<div class="social-media">
 										<ul>

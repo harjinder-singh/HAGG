@@ -41,6 +41,29 @@ class ToolCategoriesController < ApplicationController
     redirect_to @category
   end
   
+  def destroy
+    @category = ToolCategory.find(params[:id])
+    @category.destroy
+    flash[:notice] = "Category Deleted Sucessfully!!"
+    redirect_to root_path
+  end
+  
+  def add_variant
+    @category = ToolCategory.new
+    @variant = @category.variants.build
+    @photo = @variant.photos.build
+  end
+  
+  def insert_variant
+    @category = ToolCategory.find(params[:id])
+    if @category.update_attributes(category_params)
+      flash[:notice] = "Category Updated Successfully"
+    else
+      flash[:alert] = "Category Could not be updated. #{@category.errors.full_messages.join(",")}"
+    end
+    redirect_to @category
+  end
+  
   private 
 
   def category_params
