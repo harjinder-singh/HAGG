@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   end
 
   resources :photos do
+     patch :crop, on: :member
+     get   :cropping, on: :member
   end
   
   resources :contacts do

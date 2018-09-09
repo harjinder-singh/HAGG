@@ -26,6 +26,8 @@
 //= require fwslider
 //= require jquery.etalage.min
 //= require slides.min.jquery
+//= require jquery.color
+//= require jquery.Jcrop
 //= require nested_form_fields
 
 $(document).ready(function(){
@@ -116,5 +118,5 @@ $(document).ready(function(){
 	    lang: 'en',
 	    modules : 'security'
 	  });
-
+	
 });

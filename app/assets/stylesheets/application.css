@@ -21,6 +21,7 @@
  *= require default
  *= require profile
  *= require etalage
+ *= require jquery.Jcrop
  *= require_self
  */
 

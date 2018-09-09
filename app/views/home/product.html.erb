@@ -13,11 +13,15 @@
 						</div>
 					<%end%>
 					<%if index==0 or index%3==0 %><div class="top-box"><%end%>
-					<div class="col_1_of_3 span_1_of_3"> 
+					<div class="col_1_of_3 span_1_of_3">
 						<a href=<%= variant_path(var)%>>
 							<div class="inner_content clearfix">
 								<div class="product_image">
-									<img src=<%= var.photos.first.try(:img).try(:url)%> alt=""/>
+									<% if var.photos.present? %>
+										<img src=<%= var.photos.first.img.url(:large)%> alt=""/>
+									<% else %>
+										<img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
+									<%end%>
 								</div>
 								<div class="price">
 									<div class="cart-left">
@@ -25,19 +29,19 @@
 									</div>
 									<div class="cart-right"> </div>
 									<div class="clear"></div>
-								</div>				
+								</div>
 							</div>
 						</a>
 					</div>
 				<%end%>
 				<div class="clear"></div>
-			</div>			 							 			    
+			</div>
 		</div>
 		<div class="rsidebar span_1_of_left">
 			<h5 class="m_1">Categories</h5>
 			<ul class="kids">
 				<% @categories.each do |cat|%>
-					<li><a href=<%= "/products?id=#{cat.id}"%>><%= cat.name%></a></li>
+					<li><a href=<%= "/products?id=#{cat.id}"%>>-> <%= cat.name%></a></li>
 				<%end%>
 			</ul>
 		</div>

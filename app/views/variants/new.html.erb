@@ -23,14 +23,14 @@
 											<label class="control-label col-md-3"></label>
 											<div class="col-md-9">
 												<div class="fileinput fileinput-new" data-provides="fileinput">
-													<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+													<div class="fileinput-new thumbnail" style="width: 400px; height: 300px;">
 														<% if pic.object.img.exists? %>
 															<%= image_tag pic.object.img.url(:medium) %><br/>
 														<% else %>
-															<img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
+															<img src="http://www.placehold.it/400x300/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
 														<%end%>
 													</div>
-													<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+													<div class="fileinput-preview fileinput-exists thumbnail cropbox" style="max-width: 400px; max-height: 300px;">
 													</div>
 													<div>
 														<span class="btn btn-default btn-file">

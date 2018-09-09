@@ -47,7 +47,7 @@
 										<td><%= var.desc %></td>
 										<td>
 											<% var.photos.each do |pic|%>
-												<%= image_tag pic.img.url(:thumb) %>
+											<%= link_to image_tag(pic.img.url(:large), :height => "200px", :width => "150px"), url_for({:controller => 'photos', :action => 'cropping', :id => pic.id})%>
 												<%= link_to image_tag("portlet-remove-icon.png"), pic, :method => :delete%>
 											<%end%>
 										</td>
